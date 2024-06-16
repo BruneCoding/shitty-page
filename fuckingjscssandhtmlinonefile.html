@@ -1,0 +1,465 @@
+<style>
+  @keyframes watchMove {
+  0% {
+  }
+  100% {
+    transform: translateX(300px);
+    display: none;
+  }
+}
+.xob {
+  width: 50px;
+  height: 50px;
+  border-radius: 2rem;
+  background: transparent;
+  border: none;
+}
+
+.xob i {
+  scale: 2;
+  color: #d11b58;
+}
+
+.xob:hover {
+  border: 3px solid #d11b58;
+  transition: all 0.1s;
+}
+
+body {
+  background-image: url('https://bloxd.io/textures/games/bloxd.io/town-bg-compressed.jpg');
+  background-size: 120vw;
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+  margin: 0;
+}
+
+#pfp {
+  width: 75px;
+  border-radius: 50%;
+  border: 2px solid white;
+  transition: all 0.3s;
+}
+
+.button {
+  padding: 25px;
+  color: white;
+  border-radius: 1.5rem;
+  font-size: 1rem;
+  margin: 15px;
+  min-width: 150px;
+}
+
+.subscribe {
+  background: #d11b59;
+  border: 4px solid #d11b59;
+transition: all 0.25s ease;
+}
+
+.subscribe:hover {
+  background: #50bc18;
+  border: 5px solid #50bc18;
+  transform: translateY(-5px) rotate(-2.75deg);
+}
+
+.watch {
+  background: #e47fa1;
+  border: 4px solid #e47fa1;
+  transition: all 0.25s ease;
+}
+
+.watch:hover {
+  background: #89cc66;
+  border: 5px solid #89cc66;
+  transform: translateX(15px) rotate(2deg);
+}
+
+.bottom-buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+}
+
+#handle {
+  color: black;
+  font-weight: 700;
+  font-family: monospace;
+  font-size: 15px;
+  margin-left: 25px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+#handler{
+  color: black;
+  font-weight: 700;
+  font-family: "Grandstander", cursive;
+  font-size: 15px;
+  margin-left: 25px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+#desc {
+  color: black;
+  font-weight: 500;
+  font-family: monospace;
+  font-size: 10px;
+  margin-left: 25px;
+  margin-right: 5px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+
+#subs {
+  color: grey;
+  font-weight: 300;
+font-family: monospace;
+  font-size: 10px;
+  margin-left: 25px;
+  margin-top: -1px;
+  margin-bottom: 5px;
+}
+
+.left-stats {
+  flex: 2;
+}
+
+.right-stats {
+  flex: 1;
+  text-align: right;
+  align-text: right;
+  margin-right: 25px;
+}
+
+.stats-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.stats {
+  align-text: left;
+  display: flex;
+  width: 100%;
+  margin-top: 5px;
+  flex-direction: column;
+}
+
+.glass {
+  box-shadow: 0 0 50px rgba(255,255,255,0.85);
+  width: 50%;
+  height: 60%;
+  border-radius: 2rem;
+  backdrop-filter: blur(40px);
+  background: linear-gradient(to bottom right, rgba(255,255,255,0.75), rgba(255,255,255,0.55));
+  transition: all 0.3s;
+  overflow: hidden;
+}
+
+#pfp:hover {
+  border: 1px solid white;
+  transform: scale(1.0015);
+}
+
+
+.glass:hover {
+  border: 1px solid white;
+  box-shadow: 0 0 100px rgba(255,255,255,1);
+  backdrop-filter: blur(69px);
+  background: linear-gradient(to bottom right, rgba(255,255,255,0.85), rgba(255,255,255,0.65));
+  transform: scale(1.015);
+}
+
+.profile {
+  flex: 1;
+  width: 100%;
+  height: 69%;
+  background: rgba(255,255,255,0.45);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(-20px);
+}
+
+#videosSection {
+  height: calc(100% - 100px);
+  margin: 50px;
+  margin-left: -10000px;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  width: 58.5%;
+  z-index: -10;
+  transition: all 0.8s ease-in-out;
+}
+
+#videosSection h1 {
+  color: #282828;
+  font-size: 25px;
+  font-weight: 900;
+  font-family: "Helvetica", cursive;
+  text-align: left;
+  margin-left: 25px;
+}
+
+sect {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  margin-top: 20px;
+}
+
+sect span {
+  color: black;
+  opacity: 0.5;
+}
+
+sect p {
+  color: black;
+  opacity: 0.9;
+}
+
+sand {
+  display: flex;
+  flex-direction: column;
+  background: rgba(233,233,233,0.5);
+  height: 100%;
+  width: 40%;
+  margin-left: 5px;
+  margin-right: 5px;
+  border-radius: 15px;
+}
+
+sand span {
+  margin-left: 25px;
+  margin-top: -17.5px;
+  font-size: 10px;
+}
+
+sand p {
+  margin-left: 25px;
+  margin-top: 5px;
+  font-size: 13px;
+}
+
+sand h1 {
+  font-size: 20px !important;
+  margin-top: 10px;
+}
+
+.filterContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: 15px;
+  gap: 7.5px;
+}
+
+.filterBTN {
+  border-radius: 5px;
+  padding: 8px 16px;
+  color: black;
+  border: 2.5px solid black;
+  transition: all 0.3s ease-in-out;
+}
+
+.filterBTN:hover {
+  border-radius: 10px;
+  padding: 9px 17px;
+  color: black;
+  border: 3px dashed black;
+  box-shadow: 0 0 5px black;
+}
+</style>
+<html>
+  <script src="https://kit.fontawesome.com/cd9d6500a7.js" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Grandstander:ital,wght@0,100..900;1,100..900&family=Tourney:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<div class="glass">
+  <div class="profile">
+    <img id="pfp" src="https://yt3.googleusercontent.com/WiIJLUvZAVoevteppqbHljj0mIgoO8Xu5iYX8rPraoQmzjiwwztyo9xAv6o78NiOI8G9pWmzvbU=s176-c-k-c0x00ffffff-no-rj" alt="@brunegaming"></img>
+  <div class="stats">
+    <div class="stats-container">
+    <!-- flex 1 for h1 -->
+    <div class="left-stats">
+    <h1 id="handle" style="color: black" style="font-weight: 700" style="font-family: monospace" style="font-size: 20px">@Brunegaming</h1>
+    <!-- flex 2 for h4 -->
+    <h4 id="subs"style="color: dark-grey" style="font-weight: 200" style="font-famiy: monospace" style="font-size: 20px"> Aylesbury </h4>
+    </div>
+      <div class="right-stats">
+        <div>
+        <h1 id="handler"> 374</h1>
+        </div>
+        <div>
+           <h4 id="subs"> Subscribers </h4>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- paragraph text bottom completely separete-->
+  <p id="desc">Hey There! Im just a average guy making cool bloxd edits about building and some other stuff.</p>
+  <div class="links">
+    <button class="xob">
+      <i class="fa-brands fa-youtube"></i>
+    </button>
+  </div>
+  </div>
+<div class="bottom-buttons">
+  <button class="button subscribe" onclick="redirect()">Subscribe</button>
+  <button class="button watch" onclick="watchMovement()">Watch Videos</button>
+</div>
+</div>
+
+<div class="glass" id="videosSection">
+  <h1> Videos by @Brunegaming </h1>
+  <div class="filterContainer">
+    <button class="filterBTN" id="popular" onclick="nahBro()">Popular</button>
+    <button class="filterBTN" id="recent" onclick="nahBro()">Recent</button>
+    <button class="filterBTN" id="oldest" onclick="nahBro()">Oldest</button>
+  </div>
+  <sect>
+  <iframe width="320" height="180" src="https://www.youtube.com/embed/ZMFdwRGv71s" title="ChatGPT Plays Bloxd.io" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border-radius: -15px; border: 5px dashed white; box-shadow: 0 0 15px red;"></iframe>
+   <sand>
+    <h1> GPT-4 Plays Bloxd.io </h1>
+      <span> 148 👀 || 1 Week Ago 🕒</span>
+      <p> error 404, chatgpt has deleted this description and is now sending a nuke to ur house unless u sub and like <span onclick="redirectUrl()"> Read More ... </span>
+      </p>
+      </sand>
+  </sect>
+  <sect>
+  <iframe width="320" height="180" src="https://www.youtube.com/embed/Fk_fdgADPag" title="ChatGPT Plays Bloxd.io" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="border-radius: -15px; border: 5px dashed white; box-shadow: 0 0 15px yellow;"></iframe>
+    <sand>
+    <h1> Bloxd Manhunt vs 5 Hunters </h1>
+      <span> 3.1k 👀 || 2 Months Ago 🕒</span>
+      <p> E for manhunt vs 10 people! <span onclick="redirectUrl()"> Read More ... </span>
+      </p>
+      </sand>
+  </sect>
+</div>
+</html>
+<script>
+  // free api key for u guys ig idc
+  
+        const API_KEY = 'AIzaSyB5qxjkEEHuTebwSBs32zyOrS1Yo-FPH5s';
+        const CHANNEL_ID = 'UCmerZVqUiaHwmMDjWp76p6w'; // BruneGaming's channel ID
+
+        // Function to fetch subscriber count
+        async function getSubscriberCount() {
+            try {
+                const response = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${CHANNEL_ID}&key=${API_KEY}`);
+                const data = await response.json();
+                return data.items[0].statistics.subscriberCount;
+            } catch (error) {
+                console.error('Error fetching subscriber count:', error);
+                return 'Error';
+            }
+        }
+
+        // Function to update the <h1> element with subscriber count
+        async function updateSubscriberCount() {
+            const subscriberCount = await getSubscriberCount();
+            const subsElement = document.getElementById('handler');
+            if (subscriberCount !== 'Error') {
+                subsElement.textContent = `${subscriberCount}`;
+            } else {
+                subsElement.textContent = 'Failed to fetch subscriber count';
+            }
+        }
+
+        // Call the function to update subscriber count initially and then every 30 seconds
+        updateSubscriberCount();
+        setInterval(updateSubscriberCount, 300);
+
+
+
+
+
+
+
+
+
+
+function redirect() {
+  const button = document.querySelector('.subscribe');
+  const glass = document.querySelector('.glass');
+  
+  glass.style.overflow = "visible";
+  
+  button.style.background = "white";
+  button.style.color = "#d11b58";
+  button.style.position = "absolute";
+  button.style.scale = "2000";
+  
+  
+  setTimeout(function() {
+    window.location.href = "https://youtube.com/@brunegaming";
+  }, 500);
+}
+
+
+
+function watchMovement() {
+  const buttonTwo = document.querySelector('.subscribe');
+  const button = document.querySelector('.watch');
+  const glass = document.querySelector('.glass');
+  const boton = document.querySelector('.bottom-buttons');
+  const videos = document.querySelector('#videosSection');
+  
+  glass.style.transition = "all 1.5s";
+  buttonTwo.style.width = "80%";
+  boton.style.justifyContent = "center";
+  boton.style.alignItems = "center";
+
+  button.style.transform = "translateX(300px)";
+  glass.style.position = "absolute";
+  glass.style.width = "30%";
+  glass.style.height = "100%";
+  glass.style.right = "0";
+  button.style.opacity = 0;
+   setTimeout(() => {
+     button.style.display = "none";
+     glass.style.transition = "all 0.3s";
+     videos.style.opacity = "1";
+     videos.style.marginLeft= "50px";
+    }, 275);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 100 yaya
+function redirectUrl() {
+  window.location.href = "https://www.youtube.com/watch?v=Fk_fdgADPag&ab_channel=Brune";
+}
+
+
+// nah 69 lol
+function nahBro() {
+  alert("this featue doesnt work yet! maybe try again later if it doesnt work after 69 days, imma 69 this channel lol");
+}
+</script>
